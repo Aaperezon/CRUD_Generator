@@ -22,35 +22,7 @@ for query in open(p):
 	mycursor.execute(query)
 """
 
-for numTable in range (len(json_config['tableInfo'])):
-	nameTable = json_config['tableInfo'][numTable]['nameTable']
-	column = json_config['tableInfo'][numTable]['column']
-	dataName = []
-	#dataType = []
-	#condition = []
-	listToCreateTable = []
-	for i in range (0,len(column)):
-		if (i % 3 == 0):
-			dataName.append(column[i])
-			#dataType.append(column[i+1])
-			#condition.append(column[i+2])
-			if (i!=0):
-				listToCreateTable.append(", "+column[i]+" "+column[i+1]+" "+column[i+2])
-			else:
-				listToCreateTable.append(column[i]+" "+column[i+1]+" "+column[i+2])
-    				
-	stringToCreateTable = ' '.join([str(elem) for elem in listToCreateTable])
-	mycursor.execute("CREATE TABLE "+nameTable+" ("+ stringToCreateTable+" );")
 
-	phpCreate_CRUD.Run(nameTable,dataName[2:])
-	phpRead_CRUD.Run(nameTable)
-
-phpConnection.Run(json_config['host'],json_config['user'],json_config['password'],json_config['nameDB'])
-
-
-
-
-"""
 pythonConnection.Run(json_config['host'],json_config['user'],json_config['password'])
 pythonCreate_CRUD.Run('TablaDePrueba',['jeje int', 'jaja float not null'])
 
@@ -76,6 +48,32 @@ for i in range (0,len(json_config['tableInfo'])):
 
 
 print ()
+
+"""
+for numTable in range (len(json_config['tableInfo'])):
+	nameTable = json_config['tableInfo'][numTable]['nameTable']
+	column = json_config['tableInfo'][numTable]['column']
+	dataName = []
+	#dataType = []
+	#condition = []
+	listToCreateTable = []
+	for i in range (0,len(column)):
+		if (i % 3 == 0):
+			dataName.append(column[i])
+			#dataType.append(column[i+1])
+			#condition.append(column[i+2])
+			if (i!=0):
+				listToCreateTable.append(", "+column[i]+" "+column[i+1]+" "+column[i+2])
+			else:
+				listToCreateTable.append(column[i]+" "+column[i+1]+" "+column[i+2])
+    				
+	stringToCreateTable = ' '.join([str(elem) for elem in listToCreateTable])
+	mycursor.execute("CREATE TABLE "+nameTable+" ("+ stringToCreateTable+" );")
+
+	phpCreate_CRUD.Run(nameTable,dataName[2:])
+	phpRead_CRUD.Run(nameTable)
+
+phpConnection.Run(json_config['host'],json_config['user'],json_config['password'],json_config['nameDB'])
 
 
 
