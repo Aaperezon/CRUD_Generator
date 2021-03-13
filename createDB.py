@@ -1,6 +1,6 @@
 import mysql.connector
 import json
-from modules import phpConnection,phpCreate_CRUD,phpRead_CRUD
+from modules import phpConnection,phpCreate_CRUD,phpRead_CRUD,phpDelete_CRUD,phpUpdate_CRUD
 from modules import pythonConnection,pythonCreate_CRUD,pythonRead_CRUD
 
 with open('config.json') as json_config:
@@ -23,8 +23,8 @@ for query in open(p):
 """
 
 
-pythonConnection.Run(json_config['host'],json_config['user'],json_config['password'])
-pythonCreate_CRUD.Run('TablaDePrueba',['jeje int', 'jaja float not null'])
+#pythonConnection.Run(json_config['host'],json_config['user'],json_config['password'])
+#pythonCreate_CRUD.Run('TablaDePrueba',['jeje int', 'jaja float not null'])
 
 for i in range (0,len(json_config['tableInfo'])):
 	tableName = json_config['tableInfo'][i]['nameTable']
@@ -43,8 +43,11 @@ for i in range (0,len(json_config['tableInfo'])):
 	#print (dataName)
 	mycursor.execute("CREATE TABLE "+tableName+" ("+ stringToCreateTable+" );")
 
-	#phpCreate_CRUD.Run(tableName,dataName[2:])
-
+	phpCreate_CRUD.Run(tableName,dataName[2:])
+	phpRead_CRUD.Run(tableName)
+	phpDelete_CRUD.Run(tableName)
+	phpUpdate_CRUD.Run(tableName)
+phpConnection.Run(json_config['host'],json_config['user'],json_config['password'],json_config['nameDB'])
 
 
 print ()

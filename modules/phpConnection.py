@@ -25,7 +25,7 @@ def ConnectionMaker(servername, username, password, dbname):
         )
 
 def Run(servername, username, password, dbname):
-    pConnection = './Output_files/Connection.php'
+    pConnection = './Output_files/connection.php'
 
     if (os.path.exists(pConnection)):
         os.remove(pConnection)

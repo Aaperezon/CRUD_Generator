@@ -54,7 +54,7 @@ def CreateMaker(tableName,parameters):
         )
 
 def Run(tableName,parameters):
-    pCreate = './Output_files/Create'+tableName+'.php'
+    pCreate = './Output_files/create'+tableName.lower()+'.php'
     if os.path.exists(pCreate):
         os.remove(pCreate)
         print ("Removed last file")

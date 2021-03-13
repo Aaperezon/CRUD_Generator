@@ -2,30 +2,22 @@
     "host": "127.0.0.1",
     "user": "root",
     "password": "",
-    "nameDB": "iotpobros",
+    "nameDB": "baseEliminar",
     "tableInfo": [{
-            "nameTable": "Client_RPI",
+            "nameTable": "Tabla1",
             "atributes": [{
                 "atribute": ["id", "int", "AUTO_INCREMENT PRIMARY KEY"]
             }, {
                 "atribute": ["time", "timestamp", ""]
 
             }, {
-                "atribute": ["switchValue", "boolean", "NOT NULL"]
+                "atribute": ["atributo1", "VARCHAR(30)", "NOT NULL"]
 
-            }, {
-                "atribute": ["P_Data", "float", "NOT NULL"]
-
-            }, {
-                "atribute": ["I_Data", "float", "NOT NULL"]
-
-            }, {
-                "atribute": ["D_Data", "float", "NOT NULL"]
-
-            }]
+            }
+        ]
         },
         {
-            "nameTable": "RPI_Client",
+            "nameTable": "Tabla2",
             "atributes": [{
                 "atribute": ["id", "int", "AUTO_INCREMENT PRIMARY KEY"]
 
@@ -33,23 +25,10 @@
                 "atribute": ["time", "timestamp", ""]
 
             }, {
-                "atribute": ["gyroX", "float", "NOT NULL"]
+                "atribute": ["atributo1", "VARCHAR(30)", "NOT NULL"]
 
-            }, {
-                "atribute": ["gyroY", "float", "NOT NULL"]
-
-            }, {
-                "atribute": ["gyroZ", "float", "NOT NULL"]
-
-            }, {
-                "atribute": ["P_Data", "float", "NOT NULL"]
-
-            }, {
-                "atribute": ["I_Data", "float", "NOT NULL"]
-
-            }, {
-                "atribute": ["D_Data", "float", "NOT NULL"]
-            }]
+            }
+        ]
         }
     ]
 }

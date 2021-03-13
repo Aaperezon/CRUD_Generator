@@ -9,7 +9,7 @@ def ReadMaker(tableName):
     $data = [];
     if($pdo!=null){
         error_log("Connection is not null");
-        $sql = "SELECT * FROM '''+tableName+''' ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT * FROM '''+tableName+''' ORDER BY id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         while($row = $stmt->fetch(PDO::FETCH_NUM))
@@ -23,7 +23,7 @@ def ReadMaker(tableName):
         )
 
 def Run(tableName):
-    pRead = './Output_files/Read'+tableName+'.php'
+    pRead = './Output_files/read'+tableName.lower()+'.php'
 
     if os.path.exists(pRead):
         os.remove(pRead)

@@ -5,7 +5,7 @@
     if($pdo!=null){
         error_log("Connection is not null");
 
-        $parameters = ['gyroX', 'gyroY', 'gyroZ', 'P_Data', 'I_Data', 'D_Data'];
+        $parameters = ['atributo1'];
 
         for($i = 0; $i < sizeof($parameters); $i++){
             if(!isset($_GET[$parameters[$i]])){
@@ -17,8 +17,8 @@
             }
         }
         if($result==null){
-            $sql = 'INSERT INTO RPI_Client( time, gyroX, gyroY, gyroZ, P_Data, I_Data, D_Data) VALUES 
-                (CURRENT_TIMESTAMP,?,?,?,?,?,?)';
+            $sql = 'INSERT INTO Tabla1( time, atributo1) VALUES 
+                (CURRENT_TIMESTAMP,?)';
                 
             $stmt = $pdo->prepare($sql);
             if($stmt->execute($bindings)){
