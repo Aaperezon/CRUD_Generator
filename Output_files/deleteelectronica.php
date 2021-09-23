@@ -14,7 +14,7 @@
             $bindings[] = $_GET[$val];
         }
         $bindings = implode(",", $bindings);
-        $sql = "DELETE FROM Tabla2 WHERE (" . $parameters . ") = (" . $bindings . ")";
+        $sql = "DELETE FROM electronica WHERE (" . $parameters . ") = (" . $bindings . ")";
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Deletion Success";

@@ -15,7 +15,7 @@
             }
         }
         $parameters = implode(",", $parameters);
-        $sql = "UPDATE Tabla2 SET ". $parameters . " WHERE id=". $idVal;
+        $sql = "UPDATE electronica SET ". $parameters . " WHERE id=". $idVal;
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Update Success";

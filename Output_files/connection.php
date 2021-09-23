@@ -1,8 +1,8 @@
 <?php 
     $servername = "127.0.0.1";
     $username = "root";
-    $password = "";
-    $dbname = "baseEliminar";
+    $password = "root";
+    $dbname = "tecxotic_inventory";
 
     try {
         $pdo = new PDO('mysql:host='.$servername.';dbname='.$dbname, $username, $password);

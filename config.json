@@ -1,34 +1,24 @@
 {
     "host": "127.0.0.1",
+    "port": 3306,
     "user": "root",
-    "password": "",
-    "nameDB": "baseEliminar",
-    "tableInfo": [{
-            "nameTable": "Tabla1",
-            "atributes": [{
-                "atribute": ["id", "int", "AUTO_INCREMENT PRIMARY KEY"]
-            }, {
-                "atribute": ["time", "timestamp", ""]
-
-            }, {
-                "atribute": ["atributo1", "VARCHAR(30)", "NOT NULL"]
-
-            }
-        ]
-        },
+    "password": "root",
+    "nameDB": "tecxotic_inventory",
+    "tableInfo": [
         {
-            "nameTable": "Tabla2",
-            "atributes": [{
-                "atribute": ["id", "int", "AUTO_INCREMENT PRIMARY KEY"]
+            "nameTable": "electronica",
+            "atributes": [
+                {"atribute": ["id", "int", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "timestamp", ""]}, 
 
-            }, {
-                "atribute": ["time", "timestamp", ""]
 
-            }, {
-                "atribute": ["atributo1", "VARCHAR(30)", "NOT NULL"]
+                {"atribute": ["unidades", "INT", "NOT NULL", "DEFAULT 0"] },
+                {"atribute": ["componente", "TEXT", ""] },
+                {"atribute": ["descripcion", "TEXT", ""] },
+                {"atribute": ["notas", "TEXT", ""] }
 
-            }
-        ]
+            ]
         }
+       
     ]
 }

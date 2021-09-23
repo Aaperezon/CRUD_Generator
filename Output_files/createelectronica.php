@@ -5,7 +5,7 @@
     if($pdo!=null){
         error_log("Connection is not null");
 
-        $parameters = ['atributo1'];
+        $parameters = ['unidades', 'componente', 'descripcion', 'notas'];
 
         for($i = 0; $i < sizeof($parameters); $i++){
             if(!isset($_GET[$parameters[$i]])){
@@ -17,8 +17,8 @@
             }
         }
         if($result==null){
-            $sql = 'INSERT INTO Tabla1( time, atributo1) VALUES 
-                (CURRENT_TIMESTAMP,?)';
+            $sql = 'INSERT INTO electronica( time, unidades, componente, descripcion, notas) VALUES 
+                (CURRENT_TIMESTAMP,?,?,?,?)';
                 
             $stmt = $pdo->prepare($sql);
             if($stmt->execute($bindings)){
