@@ -1,0 +1,84 @@
+{
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "nameDB": "tecxotic_inventory",
+    "tableInfo": [
+
+
+        {
+            "nameTable": "categoria",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["categoria", "VARCHAR(30)", ""] }
+            ]
+        },
+        {
+            "nameTable": "color",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["color", "VARCHAR(30)", ""] }
+            ]
+        },
+        {
+            "nameTable": "area",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["area", "VARCHAR(30)", ""] }
+            ]
+        },
+        {
+            "nameTable": "tipo",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["tipo", "VARCHAR(30)", ""] }
+            ]
+        },
+        {
+            "nameTable": "usuario",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["id_tipo", "INT", ""] },
+                {"atribute": ["usuario", "VARCHAR(30)", ""] },
+                {"atribute": ["password", "TEXT", ""] },
+                {"atribute": ["nombre", "VARCHAR(30)", ""] },
+                {"atribute": ["apellido", "VARCHAR(30)", ""] },
+                {"atribute": ["FOREIGN KEY (id_tipo) REFERENCES tipo(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] }
+            ]
+        },
+        {
+            "nameTable": "inventario",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["id_area", "INT", ""] },
+                {"atribute": ["id_categoria", "INT", ""] },
+                {"atribute": ["id_color", "INT", ""] },
+                {"atribute": ["nombre", "VARCHAR(255)", ""] },
+                {"atribute": ["FOREIGN KEY (id_area) REFERENCES area(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] },
+                {"atribute": ["FOREIGN KEY (id_categoria) REFERENCES categoria(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] },
+                {"atribute": ["FOREIGN KEY (id_color) REFERENCES color(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] }
+            ]
+        },
+        {
+            "nameTable": "inventario_ocupado",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["id_inventario", "INT", ""] },
+                {"atribute": ["id_usuario", "INT", ""] },
+                {"atribute": ["FOREIGN KEY (id_inventario) REFERENCES inventario(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] },
+                {"atribute": ["FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] }
+            ]
+        }
+      
+      
+     
+    ]
+}

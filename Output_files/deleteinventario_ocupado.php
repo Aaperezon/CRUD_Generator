@@ -1,10 +1,4 @@
-import os
-
-php = ""
-def DeleteMaker(tableName):
-    global php
-    php = (
-'''<?php 
+<?php 
     require "connection.php";
     $bindings = [];
     $result=null;
@@ -20,7 +14,7 @@ def DeleteMaker(tableName):
             $bindings[] = $_GET[$val];
         }
         $bindings = implode(",", $bindings);
-        $sql = "DELETE FROM '''+tableName+''' WHERE (" . $parameters . ") = (" . $bindings . ")";
+        $sql = "DELETE FROM inventario_ocupado WHERE (" . $parameters . ") = (" . $bindings . ")";
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Deletion Success";
@@ -34,18 +28,3 @@ def DeleteMaker(tableName):
     }
     echo json_encode($result);
 ?>
-'''
-    )
-
-def Run(tableName):
-    pDelete = './Output_files/delete'+tableName.lower()+'.php'
-
-    if os.path.exists(pDelete):
-        os.remove(pDelete)
-        print ("Removed last file")
-    DeleteMaker(tableName);
-    f = open(pDelete, "a")
-    f.write(php)
-    f.close()
-    print("New file created")
-    print()

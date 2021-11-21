@@ -1,24 +1,22 @@
 <?php 
-    require "Connection.php";
+    require "connection.php";
     $bindings = [];
     $result=null;
     if($pdo!=null){
         error_log("Connection is not null");
-
-        $parameters = ['unidades', 'componente', 'descripcion', 'notas'];
-
-        for($i = 0; $i < sizeof($parameters); $i++){
-            if(!isset($_GET[$parameters[$i]])){
-                $result = "Parameter ".$parameters[$i]." missing";
+        $parameters = ['area'];
+        $received = json_decode(file_get_contents('php://input'),true);
+        foreach ($parameters as $parameter){
+            if(!isset( $received[$parameter]) ){
+                $result =  "Parameter '".$parameter."' missing";
                 break;
-            }
-            else{
-                $bindings[] = $_GET[$parameters[$i]];
+            }else{
+                $bindings[] = $received[$parameter];
             }
         }
         if($result==null){
-            $sql = 'INSERT INTO electronica( time, unidades, componente, descripcion, notas) VALUES 
-                (CURRENT_TIMESTAMP,?,?,?,?)';
+            $sql = 'INSERT INTO area( time, area) VALUES 
+                (CURRENT_TIMESTAMP,?)';
                 
             $stmt = $pdo->prepare($sql);
             if($stmt->execute($bindings)){

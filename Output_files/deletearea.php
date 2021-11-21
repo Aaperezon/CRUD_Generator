@@ -1,5 +1,5 @@
 <?php 
-    require "Connection.php";
+    require "connection.php";
     $bindings = [];
     $result=null;
     if($pdo!=null){
@@ -14,7 +14,7 @@
             $bindings[] = $_GET[$val];
         }
         $bindings = implode(",", $bindings);
-        $sql = "DELETE FROM electronica WHERE (" . $parameters . ") = (" . $bindings . ")";
+        $sql = "DELETE FROM area WHERE (" . $parameters . ") = (" . $bindings . ")";
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Deletion Success";

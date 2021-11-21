@@ -1,9 +1,9 @@
 <?php 
-    require "Connection.php";
+    require "connection.php";
     $data = [];
     if($pdo!=null){
         error_log("Connection is not null");
-        $sql = "SELECT * FROM electronica ORDER BY id";
+        $sql = "SELECT * FROM usuario ORDER BY id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         while($row = $stmt->fetch(PDO::FETCH_NUM))

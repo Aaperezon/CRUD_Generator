@@ -5,7 +5,7 @@ def ReadMaker(tableName):
     global php
     php = (
 '''<?php 
-    require "Connection.php";
+    require "connection.php";
     $data = [];
     if($pdo!=null){
         error_log("Connection is not null");

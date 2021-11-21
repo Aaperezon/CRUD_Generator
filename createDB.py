@@ -8,9 +8,14 @@
 import mysql.connector
 import json
 from modules import phpConnection,phpCreate_CRUD,phpRead_CRUD,phpDelete_CRUD,phpUpdate_CRUD
+import sys
 #from modules import pythonConnection,pythonCreate_CRUD,pythonRead_CRUD
+if len(sys.argv) != 2:
+    print(f"ERROR: Must have two parameters -> python createDB.py config.json")
+    exit()
 
-with open('config.json') as json_config:
+file = sys.argv[1]
+with open(file) as json_config:
 	json_config = json.load(json_config)
 
 mydb = mysql.connector.connect(

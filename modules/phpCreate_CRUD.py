@@ -5,31 +5,32 @@ def CreateMaker(tableName,parameters):
     global php
     parameters1 = ""
     interrogant = ""
-
+    parameters_not_empty_values = []
     for a in parameters:
-        if parameters.index(a) == 0:
-            parameters1+=a
-            interrogant+='?'
-        else:
-            parameters1+=", "+a
-            interrogant+=',?'
+        if a != "":
+            if parameters.index(a) == 0:
+                parameters1+=a
+                interrogant+='?'
+            else:
+                parameters1+=", "+a
+                interrogant+=',?'
+            parameters_not_empty_values.append(a)
+    parameters = parameters_not_empty_values
     php = (
 '''<?php 
-    require "Connection.php";
+    require "connection.php";
     $bindings = [];
     $result=null;
     if($pdo!=null){
         error_log("Connection is not null");
-
         $parameters = '''+str(parameters)+''';
-
-        for($i = 0; $i < sizeof($parameters); $i++){
-            if(!isset($_GET[$parameters[$i]])){
-                $result = "Parameter ".$parameters[$i]." missing";
+        $received = json_decode(file_get_contents('php://input'),true);
+        foreach ($parameters as $parameter){
+            if(!isset( $received[$parameter]) ){
+                $result =  "Parameter '".$parameter."' missing";
                 break;
-            }
-            else{
-                $bindings[] = $_GET[$parameters[$i]];
+            }else{
+                $bindings[] = $received[$parameter];
             }
         }
         if($result==null){
