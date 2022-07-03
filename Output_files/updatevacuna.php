@@ -15,7 +15,7 @@
             }
         }
         $parameters = implode(",", $parameters);
-        $sql = "UPDATE inventario SET ". $parameters . " WHERE id=". $idVal;
+        $sql = "UPDATE vacuna SET ". $parameters . " WHERE id=". $idVal;
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Update Success";

@@ -15,7 +15,7 @@
             }
         }
         $parameters = implode(",", $parameters);
-        $sql = "UPDATE color SET ". $parameters . " WHERE id=". $idVal;
+        $sql = "UPDATE operacion SET ". $parameters . " WHERE id=". $idVal;
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Update Success";

@@ -1,0 +1,44 @@
+{
+    "host": "10.49.185.169",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "nameDB": "meriked",
+    "tableInfo": [
+        {
+            "nameTable": "sensor",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["humedad_terrestre", "FLOAT", ""] },
+                {"atribute": ["humedad_relativa", "FLOAT", ""] },
+                {"atribute": ["temperatura", "FLOAT", ""] },
+                {"atribute": ["ph", "FLOAT", ""] }
+            ]
+        },
+        {
+            "nameTable": "cultivos",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["cultivo", "VARCHAR(255)", ""] }
+            ]
+        },
+        {
+            "nameTable": "ajustes",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["id_cultivos", "INT", ""] },
+                {"atribute": ["humedad_terrestre", "FLOAT", ""] },
+                {"atribute": ["humedad_relativa", "FLOAT", ""] },
+                {"atribute": ["temperatura", "FLOAT", ""] },
+                {"atribute": ["ph", "FLOAT", ""] },
+                {"atribute": ["FOREIGN KEY (id_cultivos) REFERENCES cultivos(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] }
+            ]
+        }
+      
+      
+     
+    ]
+}

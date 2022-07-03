@@ -1,0 +1,23 @@
+{
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "nameDB": "diagnostico_web",
+    "tableInfo": [
+        {
+            "nameTable": "person",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["name", "VARCHAR(255)", ""] },
+                {"atribute": ["sex", "VARCHAR(20)", ""] },
+                {"atribute": ["address", "VARCHAR(255)", ""] },
+                {"atribute": ["email", "VARCHAR(255)", ""] },
+                {"atribute": ["phone", "VARCHAR(255)", ""] }
+            ]
+        }
+      
+     
+    ]
+}

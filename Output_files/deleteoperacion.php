@@ -14,7 +14,7 @@
             $bindings[] = $_GET[$val];
         }
         $bindings = implode(",", $bindings);
-        $sql = "DELETE FROM area WHERE (" . $parameters . ") = (" . $bindings . ")";
+        $sql = "DELETE FROM operacion WHERE (" . $parameters . ") = (" . $bindings . ")";
         $stmt = $pdo->prepare($sql);
         if($stmt->execute()){
             $result = "Deletion Success";

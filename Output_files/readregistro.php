@@ -3,7 +3,7 @@
     $data = [];
     if($pdo!=null){
         error_log("Connection is not null");
-        $sql = "SELECT * FROM tipo ORDER BY id";
+        $sql = "SELECT * FROM registro ORDER BY id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         while($row = $stmt->fetch(PDO::FETCH_NUM))

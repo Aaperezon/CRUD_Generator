@@ -1,0 +1,49 @@
+{
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "nameDB": "apac_db",
+    "tableInfo": [
+        {
+            "nameTable": "registro",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["imagen", "LONGBLOB", ""] },
+                {"atribute": ["tipo", "VARCHAR(255)", "NOT NULL"] },
+                {"atribute": ["nombre", "VARCHAR(255)", "NOT NULL"] },
+                {"atribute": ["raza", "VARCHAR(255)", "NOT NULL"] },
+                {"atribute": ["color", "VARCHAR(255)", "NOT NULL"] },
+                {"atribute": ["fecha_de_nacimiento", "DATE", "NOT NULL"] },
+                {"atribute": ["fecha_de_ingreso", "DATE", "NOT NULL"] },
+                {"atribute": ["descripcion", "TEXT", "NOT NULL"] },
+                {"atribute": ["esterilizado", "DATE", ""] },
+                {"atribute": ["adoptado", "DATE", ""] },
+                {"atribute": ["tamano", "VARCHAR(20)", "NOT NULL"] },
+                {"atribute": ["sexo", "VARCHAR(20)", "NOT NULL"] },
+                {"atribute": ["publico", "TINYINT", ""] }
+            ]
+        },
+        {
+            "nameTable": "vacuna",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["id_registro", "INT", "NOT NULL"] },
+                {"atribute": ["fecha", "DATE", "NOT NULL"] },
+                {"atribute": ["FOREIGN KEY (id_registro) REFERENCES registro(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] }
+            ]
+        },
+        {
+            "nameTable": "operacion",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["id_registro", "INT", "NOT NULL"] },
+                {"atribute": ["fecha", "DATE", "NOT NULL"] },
+                {"atribute": ["FOREIGN KEY (id_registro) REFERENCES registro(id) ON DELETE CASCADE ON UPDATE CASCADE", "", ""] }
+            ]
+        }
+    ]
+}

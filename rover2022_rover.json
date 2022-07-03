@@ -1,0 +1,34 @@
+{
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "nameDB": "watch1",
+    "tableInfo": [
+        {
+            "nameTable": "data",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["accelerometer_x", "FLOAT", ""] },
+                {"atribute": ["accelerometer_y", "FLOAT", ""] },
+                {"atribute": ["accelerometer_z", "FLOAT", ""] },
+                {"atribute": ["gravity_x", "FLOAT", ""] },
+                {"atribute": ["gravity_y", "FLOAT", ""] },
+                {"atribute": ["gravity_z", "FLOAT", ""] },
+                {"atribute": ["gyroscope_x", "FLOAT", ""] },
+                {"atribute": ["gyroscope_y", "FLOAT", ""] },
+                {"atribute": ["gyroscope_z", "FLOAT", ""] },
+                {"atribute": ["heart_rate", "FLOAT", ""] },
+                {"atribute": ["light_level", "FLOAT", ""] },
+                {"atribute": ["linear_acceleration_x", "FLOAT", ""] },
+                {"atribute": ["linear_acceleration_y", "FLOAT", ""] },
+                {"atribute": ["linear_acceleration_z", "FLOAT", ""] },
+                {"atribute": ["pressure", "FLOAT", ""] },
+                {"atribute": ["longitude", "FLOAT", ""] }
+            ]
+        }
+      
+     
+    ]
+}

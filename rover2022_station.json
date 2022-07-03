@@ -1,0 +1,38 @@
+
+{
+    "host": "10.49.182.72",
+    "port": 3306,
+    "user": "root",
+    "password": "",
+    "nameDB": "rover2022",
+    "tableInfo": [
+        {
+            "nameTable": "sensor",
+            "atributes": [
+                {"atribute": ["id", "INT", "AUTO_INCREMENT PRIMARY KEY"]},
+                {"atribute": ["time", "TIMESTAMP", "DEFAULT CURRENT_TIMESTAMP"]},
+                {"atribute": ["vibration1", "VARCHAR(20)", ""] },
+                {"atribute": ["vibration2", "VARCHAR(20)", ""] },
+                {"atribute": ["vibration3", "VARCHAR(20)", ""] },
+                {"atribute": ["vibration4", "VARCHAR(20)", ""] },
+                {"atribute": ["gasCO2", "DOUBLE", ""] },
+                {"atribute": ["humidity", "DOUBLE", ""] },
+                {"atribute": ["pressure", "DOUBLE", ""] },
+                {"atribute": ["altitude", "DOUBLE", ""] },
+                {"atribute": ["temperature", "DOUBLE", ""] },
+                {"atribute": ["roll", "INT", ""] },
+                {"atribute": ["pitch", "INT", ""] },
+                {"atribute": ["yaw", "INT", ""] },
+                {"atribute": ["speed", "INT", ""] },
+                {"atribute": ["gravity1_x", "DOUBLE", ""] },
+                {"atribute": ["gravity1_y", "DOUBLE", ""] },
+                {"atribute": ["gravity1_z", "DOUBLE", ""] },
+                {"atribute": ["light1", "DOUBLE", ""] },
+                {"atribute": ["heart_rate1", "DOUBLE", ""] }
+
+            ]
+        }
+      
+     
+    ]
+}
